@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A491DEF-A8B3-41F1-84A0-F263562ED1A0}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EnjoyPubLib</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>EnjoyPubLib</AssemblyName>
+    <ReleaseVersion>1.1</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>i386</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer: Guohuan Bi (7U6F28Y825)</CodesignKey>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>DDDB5435-C12E-4DCE-A88D-02A1504C389A</CodesignProvision>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <BuildIpa>true</BuildIpa>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <DefineConstants>__MOBILE__;__IOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Distribution: Guohuan Bi (H5VF23L8V8)</CodesignKey>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>B7841D88-BFCC-4827-93B4-8D6B9BF87628</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="ZXing.Net.Mobile.MonoTouch">
+      <HintPath>..\..\..\Library\Zxing\0.1\ZXing.Net.Mobile.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.monotouch">
+      <HintPath>..\..\..\Library\Zxing\0.1\zxing.monotouch.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\..\Library\BTProgressHUD\1.0\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Library\json60r3\Portable\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTouch.Dialog">
+      <HintPath>..\..\..\Library\MT\0.1\MonoTouch.Dialog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Evernote">
+      <HintPath>..\..\..\Library\evernotesdk\V1.25\Evernote.dll</HintPath>
+    </Reference>
+    <Reference Include="Thrift">
+      <HintPath>..\..\..\Library\evernotesdk\V1.25\Thrift.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Images\Buttons\back.png" />
+    <BundleResource Include="Images\Buttons\back%402x.png" />
+    <BundleResource Include="Images\Buttons\three_lines.png" />
+    <BundleResource Include="Images\Buttons\three_lines%402x.png" />
+    <BundleResource Include="Images\wish.png" />
+    <BundleResource Include="Images\wish%402x.png" />
+    <BundleResource Include="Images\borrow.png" />
+    <BundleResource Include="Images\borrow%402x.png" />
+    <BundleResource Include="Images\cog.png" />
+    <BundleResource Include="Images\cog%402x.png" />
+    <BundleResource Include="Images\Feedback.png" />
+    <BundleResource Include="Images\Feedback%402x.png" />
+    <BundleResource Include="Images\info.png" />
+    <BundleResource Include="Images\info%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Images\help1.png" />
+    <BundleResource Include="Images\help2.png" />
+    <BundleResource Include="Images\help3.png" />
+    <BundleResource Include="Images\help4.png" />
+    <BundleResource Include="eplinfodb.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="RELEASE-NOTES.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="EnjoyPubLibViewController.cs" />
+    <Compile Include="EnjoyPubLibViewController.designer.cs">
+      <DependentUpon>EnjoyPubLibViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\View\SlideoutNavigationViewController.cs" />
+    <Compile Include="Util\theme.cs" />
+    <Compile Include="Util\View\BaseDialogViewController.cs" />
+    <Compile Include="Util\View\MenuBaseViewController.cs" />
+    <Compile Include="Util\View\ProfileButton.cs" />
+    <Compile Include="Util\Element\element.cs" />
+    <Compile Include="Theme.cs" />
+    <Compile Include="Util\UIImageHelper.cs" />
+    <Compile Include="Images\Images.cs" />
+    <Compile Include="Views\App\MemuView.cs" />
+    <Compile Include="Util\View\MenuSectionView.cs" />
+    <Compile Include="Util\Ex.cs" />
+    <Compile Include="Views\Setting\AboutViewController.cs" />
+    <Compile Include="Util\Element\MultilinedElement.cs" />
+    <Compile Include="Util\Element\CustomElement.cs" />
+    <Compile Include="Util\StringExtensions.cs" />
+    <Compile Include="Views\Setting\SettingsView.cs" />
+    <Compile Include="Util\Element\TrueFalseElement.cs" />
+    <Compile Include="Views\Wish\BookSeekController.cs" />
+    <Compile Include="Views\Wish\ScanBookController.cs" />
+    <Compile Include="Util\Hud.cs" />
+    <Compile Include="Util\ViewControllerExtensions.cs" />
+    <Compile Include="Util\Utilities.cs" />
+    <Compile Include="Views\Wish\BookSeekResultController.cs" />
+    <Compile Include="Util\Cell\NewsCellView.cs" />
+    <Compile Include="Util\Cell\NewsCellView.designer.cs" />
+    <Compile Include="Util\Element\NewsFeedElement.cs" />
+    <Compile Include="Views\Setting\AddAccountViewController.cs" />
+    <Compile Include="Views\Setting\AddDoubanViewController.cs" />
+    <Compile Include="Views\Setting\AddDoubanViewController.designer.cs">
+      <DependentUpon>AddDoubanViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Wish\DouWishListViewController.cs" />
+    <Compile Include="Views\Wish\BookInfoController.cs" />
+    <Compile Include="Util\UIWebViewImage.cs" />
+    <Compile Include="Views\Wish\WishBookListController.cs" />
+    <Compile Include="Views\Borrow\BorrowPVListController.cs" />
+    <Compile Include="Util\Element\RadioElemt.cs" />
+    <Compile Include="Views\Borrow\BorrowListController.cs" />
+    <Compile Include="Views\Setting\AddEvernoteAccountViewController.cs" />
+    <Compile Include="Views\App\NotifyViewController.cs" />
+    <Compile Include="Views\App\AddNotifyInfoShowViewController.cs" />
+    <Compile Include="Views\App\UserGuideViewController.cs" />
+    <Compile Include="Util\Reachability.cs" />
+    <Compile Include="Util\iAdViewController.cs" />
+    <Compile Include="Util\IAdHelper.cs" />
+    <Compile Include="Views\Borrow\LibInfoListViewController.cs" />
+    <Compile Include="Views\Borrow\LibViewController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="EnjoyPubLibViewController.xib" />
+    <InterfaceDefinition Include="Util\Cell\NewsCellView.xib" />
+    <InterfaceDefinition Include="Views\Setting\AddDoubanViewController.xib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Util\" />
+    <Folder Include="Util\View\" />
+    <Folder Include="Util\Element\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\App\" />
+    <Folder Include="Images\" />
+    <Folder Include="Images\Buttons\" />
+    <Folder Include="Views\Wish\" />
+    <Folder Include="Views\Borrow\" />
+    <Folder Include="Views\Setting\" />
+    <Folder Include="Util\Cell\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MTControl\MTControl.csproj">
+      <Project>{70FB89F8-FAED-434A-974F-D1AC2220AF89}</Project>
+      <Name>MTControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epl.IOS\Epl.IOS.csproj">
+      <Project>{BCA843C2-B778-4640-9C55-5309D864300B}</Project>
+      <Name>Epl.IOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

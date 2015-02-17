@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="EnjoyPubLibService" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:tns="http://tempuri.org/Imports" targetNamespace="http://tempuri.org/Imports" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="http://115.29.166.9:8733/MonitorBk/EnjoyPubLibService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xs:import schemaLocation="http://115.29.166.9:8733/MonitorBk/EnjoyPubLibService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:import schemaLocation="http://115.29.166.9:8733/MonitorBk/EnjoyPubLibService/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xs:schema>
+  </types>
+  <message name="IEnjoyPubLibService_SubmitMonitorWork_InputMessage">
+    <part name="parameters" element="tns:SubmitMonitorWork" />
+  </message>
+  <message name="IEnjoyPubLibService_SubmitMonitorWork_OutputMessage">
+    <part name="parameters" element="tns:SubmitMonitorWorkResponse" />
+  </message>
+  <message name="IEnjoyPubLibService_UpdateUserNotify_InputMessage">
+    <part name="parameters" element="tns:UpdateUserNotify" />
+  </message>
+  <message name="IEnjoyPubLibService_UpdateUserNotify_OutputMessage">
+    <part name="parameters" element="tns:UpdateUserNotifyResponse" />
+  </message>
+  <message name="IEnjoyPubLibService_GetBookISBNList_InputMessage">
+    <part name="parameters" element="tns:GetBookISBNList" />
+  </message>
+  <message name="IEnjoyPubLibService_GetBookISBNList_OutputMessage">
+    <part name="parameters" element="tns:GetBookISBNListResponse" />
+  </message>
+  <portType name="IEnjoyPubLibService">
+    <operation name="SubmitMonitorWork">
+      <input wsaw:Action="http://tempuri.org/IEnjoyPubLibService/SubmitMonitorWork" message="tns:IEnjoyPubLibService_SubmitMonitorWork_InputMessage" />
+      <output wsaw:Action="http://tempuri.org/IEnjoyPubLibService/SubmitMonitorWorkResponse" message="tns:IEnjoyPubLibService_SubmitMonitorWork_OutputMessage" />
+    </operation>
+    <operation name="UpdateUserNotify">
+      <input wsaw:Action="http://tempuri.org/IEnjoyPubLibService/UpdateUserNotify" message="tns:IEnjoyPubLibService_UpdateUserNotify_InputMessage" />
+      <output wsaw:Action="http://tempuri.org/IEnjoyPubLibService/UpdateUserNotifyResponse" message="tns:IEnjoyPubLibService_UpdateUserNotify_OutputMessage" />
+    </operation>
+    <operation name="GetBookISBNList">
+      <input wsaw:Action="http://tempuri.org/IEnjoyPubLibService/GetBookISBNList" message="tns:IEnjoyPubLibService_GetBookISBNList_InputMessage" />
+      <output wsaw:Action="http://tempuri.org/IEnjoyPubLibService/GetBookISBNListResponse" message="tns:IEnjoyPubLibService_GetBookISBNList_OutputMessage" />
+    </operation>
+  </portType>
+  <binding name="http" type="tns:IEnjoyPubLibService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="SubmitMonitorWork">
+      <soap:operation soapAction="http://tempuri.org/IEnjoyPubLibService/SubmitMonitorWork" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="UpdateUserNotify">
+      <soap:operation soapAction="http://tempuri.org/IEnjoyPubLibService/UpdateUserNotify" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBookISBNList">
+      <soap:operation soapAction="http://tempuri.org/IEnjoyPubLibService/GetBookISBNList" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="EnjoyPubLibService">
+    <port name="http" binding="tns:http">
+      <soap:address location="http://115.29.166.9:8733/MonitorBk/EnjoyPubLibService/v1" />
+    </port>
+  </service>
+</definitions>

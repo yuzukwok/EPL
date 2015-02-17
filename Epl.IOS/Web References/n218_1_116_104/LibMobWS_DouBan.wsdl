@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://www.example.org/LibMobWS_DouBan/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/LibMobWS_DouBan/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LibMobWS_DouBan" targetNamespace="http://www.example.org/LibMobWS_DouBan/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://www.example.org/LibMobWS_DouBan/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetBookInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookInfoResponse">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="ISBN" type="xs:string" />
+            <xs:element name="BookName" type="xs:string" />
+            <xs:element name="Author" type="xs:string" />
+            <xs:element name="BookPic" type="xs:string" />
+            <xs:element name="BookUri" type="xs:string" />
+            <xs:element name="Summary" type="xs:string" />
+            <xs:element name="TotalPage" type="xs:int" />
+            <xs:element name="Publisher" type="xs:string" />
+            <xs:element name="PubDate" type="xs:string" />
+            <xs:element name="binding" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookCover">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookCoverResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="PicUri" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookRates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookRatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RateNum" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookTags">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookTagsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="TagCount" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="TagItem">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="TagName" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TagNum" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetComments">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCommentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ISBN" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="connemtItem">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CommentTitle" type="xs:string" />
+                  <xs:element name="CommentText" type="xs:string" />
+                  <xs:element name="CommentAuthor" type="xs:string" />
+                  <xs:element name="CommentDate" type="xs:string" />
+                  <xs:element name="CommentRating" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="iPAC">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="ISBN" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="iPACResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ISBN" type="xs:string" />
+            <xs:element name="Pic_url" type="xs:string" />
+            <xs:element name="Rate" type="xs:string" />
+            <xs:element name="BackUrl" type="xs:string" />
+            <xs:element name="Total" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="connemtItem">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="CommentTitle" type="xs:string" />
+                  <xs:element name="CommentText" type="xs:string" />
+                  <xs:element name="CommentAuthor" type="xs:string" />
+                  <xs:element name="CommentDate" type="xs:string" />
+                  <xs:element name="CommentRating" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="iPACRequest">
+    <part name="iPAC_IN" element="tns:iPAC" />
+  </message>
+  <message name="GetBookRatesResponse">
+    <part name="GetBookRates_OUT" element="tns:GetBookRatesResponse" />
+  </message>
+  <message name="GetBookInfoResponse">
+    <part name="GetBookInfo_OUT" element="tns:GetBookInfoResponse" />
+  </message>
+  <message name="GetBookCoverRequest">
+    <part name="GetBookCover_IN" element="tns:GetBookCover" />
+  </message>
+  <message name="GetCommentsRequest">
+    <part name="GetComments_IN" element="tns:GetComments" />
+  </message>
+  <message name="GetBookTagsResponse">
+    <part name="GetBookTags_OUT" element="tns:GetBookTagsResponse" />
+  </message>
+  <message name="GetBookTagsRequest">
+    <part name="GetBookTags_IN" element="tns:GetBookTags" />
+  </message>
+  <message name="iPACResponse">
+    <part name="iPAC_OUT" element="tns:iPACResponse" />
+  </message>
+  <message name="GetBookInfoRequest">
+    <part name="GetBookInfo_IN" element="tns:GetBookInfo" />
+  </message>
+  <message name="GetCommentsResponse">
+    <part name="GetComments_OUT" element="tns:GetCommentsResponse" />
+  </message>
+  <message name="GetBookRatesRequest">
+    <part name="GetBookRates_IN" element="tns:GetBookRates" />
+  </message>
+  <message name="GetBookCoverResponse">
+    <part name="GetBookCover_OUT" element="tns:GetBookCoverResponse" />
+  </message>
+  <portType name="LibMobWS_DouBan">
+    <operation name="GetBookInfo">
+      <input name="GetBookInfo_input" message="tns:GetBookInfoRequest" />
+      <output name="GetBookInfo_output" message="tns:GetBookInfoResponse" />
+    </operation>
+    <operation name="GetBookCover">
+      <input name="GetBookCover_input" message="tns:GetBookCoverRequest" />
+      <output name="GetBookCover_output" message="tns:GetBookCoverResponse" />
+    </operation>
+    <operation name="GetBookRates">
+      <input name="GetBookRates_input" message="tns:GetBookRatesRequest" />
+      <output name="GetBookRates_output" message="tns:GetBookRatesResponse" />
+    </operation>
+    <operation name="GetBookTags">
+      <input name="GetBookTags_input" message="tns:GetBookTagsRequest" />
+      <output name="GetBookTags_output" message="tns:GetBookTagsResponse" />
+    </operation>
+    <operation name="GetComments">
+      <input name="GetComments_input" message="tns:GetCommentsRequest" />
+      <output name="GetComments_output" message="tns:GetCommentsResponse" />
+    </operation>
+    <operation name="iPAC">
+      <input name="iPAC_input" message="tns:iPACRequest" />
+      <output name="iPAC_output" message="tns:iPACResponse" />
+    </operation>
+  </portType>
+  <binding name="LibMobWS_DouBanSOAP" type="tns:LibMobWS_DouBan">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetBookInfo">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/GetBookInfo" />
+      <input name="GetBookInfo_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetBookInfo_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBookCover">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/GetBookCover" />
+      <input name="GetBookCover_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetBookCover_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBookRates">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/GetBookRates" />
+      <input name="GetBookRates_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetBookRates_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBookTags">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/GetBookTags" />
+      <input name="GetBookTags_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetBookTags_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="iPAC">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/iPAC" />
+      <input name="iPAC_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="iPAC_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetComments">
+      <soap:operation soapAction="http://www.example.org/LibMobWS_DouBan/GetComments" />
+      <input name="GetComments_input">
+        <soap:body use="literal" />
+      </input>
+      <output name="GetComments_output">
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LibMobWS_DouBan">
+    <port name="LibMobWS_DouBanSOAP" binding="tns:LibMobWS_DouBanSOAP">
+      <soap:address location="http://10.1.31.101:8080/axis2/services/LibMobWS_DouBan/" />
+    </port>
+  </service>
+</definitions>
