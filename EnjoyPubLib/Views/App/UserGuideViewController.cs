@@ -1,10 +1,10 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using MonoTouch.Dialog;
 using EnjoyPubLib.ImagesUtil;
 using EnjoyPubLib.View;
@@ -43,7 +43,7 @@ namespace EnjoyPubLib
 
 			UIButton btnentry = new UIButton (UIButtonType.System);
 			btnentry.SetTitle ("立即体验", UIControlState.Normal);
-			btnentry.Frame = new System.Drawing.RectangleF (bouds.Location.X+bouds.Size.Width*3-130, bouds.Location.Y+bouds.Size.Height-100,100 ,100 );
+			btnentry.Frame = new CoreGraphics.CGRect (bouds.Location.X+bouds.Size.Width*3-130, bouds.Location.Y+bouds.Size.Height-100,100 ,100 );
 			btnentry.TouchUpInside += new EventHandler (delegate(object sender, EventArgs e) {
 				NavigationController.NavigationBarHidden=false;
 
@@ -52,21 +52,21 @@ namespace EnjoyPubLib
 					AppDelegate.Menu.TopView = new BookSeekController ();
 				}
 			});
-			UIImageView imageView1 = new UIImageView (new System.Drawing.RectangleF(bouds.Location.X,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
+			UIImageView imageView1 = new UIImageView (new CoreGraphics.CGRect(bouds.Location.X,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
 			imageView1.Image = Images.Help1;
 			//imageView1.Alpha = 0.5f;
 
-			UIImageView imageView2 =  new UIImageView (new System.Drawing.RectangleF(bouds.Location.X+bouds.Size.Width,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
+			UIImageView imageView2 =  new UIImageView (new CoreGraphics.CGRect(bouds.Location.X+bouds.Size.Width,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
 			imageView2.Image = Images.Help2;
 			//imageView2.Alpha = 0.5f;
 
-			UIImageView imageView3 =  new UIImageView (new System.Drawing.RectangleF(bouds.Location.X+bouds.Size.Width*2,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
+			UIImageView imageView3 =  new UIImageView (new CoreGraphics.CGRect(bouds.Location.X+bouds.Size.Width*2,bouds.Location.Y,bouds.Size.Width,bouds.Size.Height));
 			imageView3.Image = Images.Help3;
 			//imageView3.Alpha = 0.5f;
 
 			helpsrcView= new UIScrollView (bouds);
 			helpsrcView.CanCancelContentTouches = false;
-			helpsrcView.ContentSize = new System.Drawing.SizeF (bouds.Size.Width * 3, bouds.Size.Height);
+			helpsrcView.ContentSize = new CoreGraphics.CGSize (bouds.Size.Width * 3, bouds.Size.Height);
 			helpsrcView.PagingEnabled = true;
 			helpsrcView.Bounces = false;
 			helpsrcView.Delegate = new UIScroll (this);
@@ -80,7 +80,7 @@ namespace EnjoyPubLib
 			helpsrcView.Add (btnentry);
 			View.AddSubview (helpsrcView);
 
-			pageCtrl=new UIPageControl(new System.Drawing.RectangleF(
+			pageCtrl=new UIPageControl(new CoreGraphics.CGRect(
 				0,bouds.Size.Height-30,bouds.Size.Width,30));
 			pageCtrl.CurrentPage = 0;
 			pageCtrl.Pages = 3;
@@ -88,7 +88,7 @@ namespace EnjoyPubLib
 				//update
 				var p = sender as UIPageControl;
 				var vsize = helpsrcView.Frame.Size;
-				var rect = new System.Drawing.RectangleF (p.CurrentPage * vsize.Width,
+				var rect = new CoreGraphics.CGRect (p.CurrentPage * vsize.Width,
 					          0,
 					          vsize.Width,
 					          vsize.Height);

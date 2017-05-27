@@ -2,10 +2,10 @@ using System;
 using EnjoyPubLib.Util.View;
 using MonoTouch.Dialog;
 using MonoTouch;
-using MonoTouch.Foundation;
+using Foundation;
 using EnjoyPubLib.Util.ElementUtil;
 using EnjoyPubLib.Util;
-using MonoTouch.UIKit;
+using UIKit;
 
 namespace EnjoyPubLib.View
 {

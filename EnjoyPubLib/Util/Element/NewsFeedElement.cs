@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+using CoreGraphics;
 using System.Linq;
-using MonoTouch.CoreGraphics;
 using MonoTouch.Dialog;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using MonoTouch.Dialog.Utilities;
 using EnjoyPubLib.Util;
 using EnjoyPubLib.Util.ThemeUtil;
@@ -84,9 +83,9 @@ namespace EnjoyPubLib.Util.ElementUtil
 
 	
 
-		private static float CharacterHeight = "A".MonoStringHeight(UIFont.SystemFontOfSize(13f), 1000);
+		private static nfloat CharacterHeight = "A".MonoStringHeight(UIFont.SystemFontOfSize(13f), 1000);
 
-		public float GetHeight (UITableView tableView, NSIndexPath indexPath)
+		public nfloat GetHeight (UITableView tableView, NSIndexPath indexPath)
 		{
 //			if (_attributedBody.Length > 0)
 //			{

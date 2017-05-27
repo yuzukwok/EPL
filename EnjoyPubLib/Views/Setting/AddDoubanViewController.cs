@@ -3,8 +3,8 @@ using EnjoyPubLib.Util.View;
 using MonoTouch.Dialog;
 using EnjoyPubLib.Util;
 using EnjoyPubLib.Service.Douban;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using UIKit;
+using Foundation;
 namespace EnjoyPubLib
 {
 	public partial class AddDoubanViewController : UIViewController
@@ -55,12 +55,12 @@ namespace EnjoyPubLib
 						d.setKV(AppDelegate.Connection,Contans.DefaultDoubanAuthKey,tk.Token);
 						d.setKV(AppDelegate.Connection,Contans.DefaultDoubanUserName,user.Name);
 						d.setKV(AppDelegate.Connection,Contans.DefaultDoubanAvatar,user.Avatar);
-						NavigationController.PopViewControllerAnimated(true);
+						NavigationController.PopViewController(true);
 					}else
 					{
 						UIAlertView v=new UIAlertView("信息","未能成功授权，请重试",null,"OK",null);
 						v.Show();
-						NavigationController.PopViewControllerAnimated(true);
+						NavigationController.PopViewController(true);
 					}
 				}
 

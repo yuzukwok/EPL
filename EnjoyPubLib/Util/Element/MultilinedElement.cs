@@ -1,10 +1,10 @@
 using System;
 using MonoTouch.Dialog;
 using MonoTouch;
-using MonoTouch.UIKit;
+using UIKit;
 using MonoTouch.Dialog.Utilities;
-using System.Drawing;
-using MonoTouch.Foundation;
+using CoreGraphics;
+using Foundation;
 
 namespace EnjoyPubLib.Util.ElementUtil
 {
@@ -18,7 +18,7 @@ namespace EnjoyPubLib.Util.ElementUtil
 		{
 		}
 
-		public MultilineWithChineseWordElement (string caption, NSAction tapped) : base (caption, tapped)
+		public MultilineWithChineseWordElement (string caption, Action tapped) : base (caption, tapped)
 		{
 		}
 
@@ -32,18 +32,20 @@ namespace EnjoyPubLib.Util.ElementUtil
 			return cell;
 		}
 
-		public virtual float GetHeight (UITableView tableView, NSIndexPath indexPath)
+		public virtual nfloat GetHeight (UITableView tableView, NSIndexPath indexPath)
 		{
 
-			float margin = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone ? 40f : 110f;
-			SizeF size = new SizeF (tableView.Bounds.Width - margin, float.MaxValue);
-			UIFont font = UIFont.BoldSystemFontOfSize (17);
-			string c = Caption;
-			// ensure the (single-line) Value will be rendered inside the cell
-			if (String.IsNullOrEmpty (c) && !String.IsNullOrEmpty (Value))
-				c = " ";
-
-			return tableView.StringSize (c, font, size, UILineBreakMode.WordWrap).Height + 10;
+//			float margin = UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone ? 40f : 110f;
+//			CGSize size = new CGSize (tableView.Bounds.Width - margin, float.MaxValue);
+//			UIFont font = UIFont.BoldSystemFontOfSize (17);
+//			string c = Caption;
+//			// ensure the (single-line) Value will be rendered inside the cell
+//			if (String.IsNullOrEmpty (c) && !String.IsNullOrEmpty (Value))
+//				c = " ";
+//
+//			return tableView.StringSize (c, font, size, UILineBreakMode.WordWrap).Height + 10;
+			//TODO miss
+			return 30;
 		}
 	}
 
@@ -98,38 +100,40 @@ namespace EnjoyPubLib.Util.ElementUtil
 			return cell;
 		}
 
-		public override void Draw(RectangleF bounds, MonoTouch.CoreGraphics.CGContext context, UIView view)
+		public override void Draw(CGRect bounds, CoreGraphics.CGContext context, UIView view)
 		{
 			view.BackgroundColor = UIColor.White;
 			CaptionColor.SetColor();
 			var width = bounds.Width - PaddingX * 2;
-			var textHeight = Caption.MonoStringHeight(CaptionFont, width);
-			view.DrawString(Caption, new RectangleF(PaddingX, PaddingY, width, bounds.Height - PaddingY * 2), CaptionFont, UILineBreakMode.WordWrap);
-
-			if (Value != null)
-			{
-				ValueColor.SetColor();
-				var valueOrigin = new PointF(PaddingX, PaddingY + textHeight + 6f);
-				var valueSize = new SizeF(width, bounds.Height - valueOrigin.Y);
-				view.DrawString(Value, new RectangleF(valueOrigin, valueSize), ValueFont, UILineBreakMode.WordWrap);
-			}
+			//var textHeight = Caption.MonoStringHeight(CaptionFont, width);
+			//TODO miss
+//			view.DrawString(Caption, new CGRect(PaddingX, PaddingY, width, bounds.Height - PaddingY * 2), CaptionFont, UILineBreakMode.WordWrap);
+//
+//			if (Value != null)
+//			{
+//				ValueColor.SetColor();
+//				var valueOrigin = new CGPoint(PaddingX, PaddingY + textHeight + 6f);
+//				var valueSize = new CGSize(width, bounds.Height - valueOrigin.Y);
+//				view.DrawString(Value, new CGRect(valueOrigin, valueSize), ValueFont, UILineBreakMode.WordWrap);
+//			}
 		}
 
-		public override float Height(System.Drawing.RectangleF bounds)
+		public override float Height(CGRect bounds)
 		{
 			var width = bounds.Width - PaddingX * 2;
 			if (IsTappedAssigned)
 				width -= 20f;
-
-			var textHeight = Caption.MonoStringHeight(CaptionFont, width);
-
-			if (Value != null)
-			{
-				textHeight += 6f;
-				textHeight += Value.MonoStringHeight(ValueFont, width);
-			}
-
-			return (int)Math.Ceiling(textHeight + PaddingY * 2) + 1;
+			//TODO miss
+			return 20f;
+//			var textHeight = Caption.MonoStringHeight(CaptionFont, width);
+//
+//			if (Value != null)
+//			{
+//				textHeight += 6f;
+//				textHeight += Value.MonoStringHeight(ValueFont, width);
+//			}
+//
+//			return (int)Math.Ceiling(textHeight + PaddingY * 2) + 1;
 		}
 	}
 }

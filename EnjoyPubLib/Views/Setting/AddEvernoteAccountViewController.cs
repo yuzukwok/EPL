@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using MonoTouch;
-using MonoTouch.UIKit;
+using UIKit;
 using EnjoyPubLib.WebService;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Web;
-using System.Drawing;
-using MonoTouch.Foundation;
+using CoreGraphics;
+using Foundation;
 using MonoTouch.Dialog;
 using Thrift.Transport;
 using Thrift.Protocol;
@@ -84,7 +84,7 @@ namespace EnjoyPubLib
 							
 						}
 
-						NavigationController.PopViewControllerAnimated(true);
+						NavigationController.PopViewController(true);
 					}				
 				}else
 				{

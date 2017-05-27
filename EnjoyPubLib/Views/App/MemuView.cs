@@ -1,6 +1,6 @@
 using System;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using EnjoyPubLib.Util.View;
 using EnjoyPubLib.ImagesUtil;
 using EnjoyPubLib.View;
@@ -76,7 +76,7 @@ namespace EnjoyPubLib
 
 		}
 
-		public override UITableViewCell GetCell (UITableView tableView, MonoTouch.Foundation.NSIndexPath indexPath)
+		public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			return base.GetCell (tableView, indexPath);
 		}
@@ -97,7 +97,7 @@ namespace EnjoyPubLib
 				_parent = dvc;
 			}
 
-			public override bool CanEditRow(UITableView tableView, MonoTouch.Foundation.NSIndexPath indexPath)
+			public override bool CanEditRow(UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				if (_parent._favoriteRepoSection == null)
 					return false;
@@ -106,14 +106,14 @@ namespace EnjoyPubLib
 				return false;
 			}
 
-			public override UITableViewCellEditingStyle EditingStyleForRow(UITableView tableView, MonoTouch.Foundation.NSIndexPath indexPath)
+			public override UITableViewCellEditingStyle EditingStyleForRow(UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				if (_parent._favoriteRepoSection != null && _parent.Root[indexPath.Section] == _parent._favoriteRepoSection)
 					return UITableViewCellEditingStyle.Delete;
 				return UITableViewCellEditingStyle.None;
 			}
 
-			public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, MonoTouch.Foundation.NSIndexPath indexPath)
+			public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 			{
 				switch (editingStyle)
 				{

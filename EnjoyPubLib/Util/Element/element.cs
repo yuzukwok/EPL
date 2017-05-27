@@ -1,8 +1,8 @@
 using System;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using MonoTouch.Dialog.Utilities;
-using MonoTouch.Foundation;
+using Foundation;
 
 namespace EnjoyPubLib.Util.ElementUtil
 {
@@ -25,13 +25,13 @@ namespace EnjoyPubLib.Util.ElementUtil
 			Init();
 		}
 
-		public StyledStringElement (string caption, NSAction tapped) : base (caption, tapped) 
+		public StyledStringElement (string caption, Action tapped) : base (caption, tapped) 
 		{
 			Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			Init();
 		}
 
-		public StyledStringElement (string caption, NSAction tapped, UIImage image) : base (caption, tapped) 
+		public StyledStringElement (string caption, Action tapped, UIImage image) : base (caption, tapped) 
 		{
 			Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			Init();
@@ -51,7 +51,7 @@ namespace EnjoyPubLib.Util.ElementUtil
 		}
 
 		protected UITableViewCellStyle style;
-		public event NSAction AccessoryTapped;
+		public event Action AccessoryTapped;
 		public UIFont Font;
 		public UIFont SubtitleFont;
 		public UIColor TextColor;
@@ -248,7 +248,7 @@ namespace EnjoyPubLib.Util.ElementUtil
 
 		internal void AccessoryTap ()
 		{
-			NSAction tapped = AccessoryTapped;
+			Action tapped = AccessoryTapped;
 			if (tapped != null)
 				tapped ();
 		}

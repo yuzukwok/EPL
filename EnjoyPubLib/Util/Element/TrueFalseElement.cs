@@ -1,5 +1,6 @@
 using MonoTouch.Dialog;
 using System;
+using UIKit;
 
 
 namespace MonoTouch.Dialog
@@ -13,7 +14,7 @@ namespace MonoTouch.Dialog
 				this.ValueChanged += (object sender, EventArgs e) => changeAction(this);
 		}
 
-		public override MonoTouch.UIKit.UITableViewCell GetCell(MonoTouch.UIKit.UITableView tv)
+		public override UITableViewCell GetCell(UITableView tv)
 		{
 			var cell = base.GetCell(tv);
 			cell.BackgroundColor =EnjoyPubLib.Util.ElementUtil.StyledStringElement.BgColor;

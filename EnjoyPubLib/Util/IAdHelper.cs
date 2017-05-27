@@ -1,8 +1,8 @@
-﻿
+
 using System;
 using MonoTouch;
 using MonoTouch.Dialog;
-using MonoTouch.iAd;
+using iAd;
 
 namespace EnjoyPubLib
 {
@@ -11,7 +11,7 @@ namespace EnjoyPubLib
 		ADBannerView _ad;
 		public  UIViewElement Get ()
 		{
-			_ad = new MonoTouch.iAd.ADBannerView (MonoTouch.iAd.ADAdType.Banner);
+			_ad = new iAd.ADBannerView (iAd.ADAdType.Banner);
 			_ad.Hidden = true;
 			_ad.FailedToReceiveAd += HandleFailedToReceiveAd;
 			_ad.AdLoaded += HandleAdLoaded;

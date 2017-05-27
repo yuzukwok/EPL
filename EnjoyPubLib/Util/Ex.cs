@@ -1,11 +1,11 @@
 using System;
 using MonoTouch;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using System.Drawing;
+using Foundation;
+using UIKit;
+using CoreGraphics;
 using System.Net;
-using MonoTouch.CoreFoundation;
-using MonoTouch.SystemConfiguration;
+using CoreFoundation;
+using SystemConfiguration;
 
 namespace EnjoyPubLib
 {

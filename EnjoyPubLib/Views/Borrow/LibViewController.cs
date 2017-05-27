@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using EnjoyPubLib.Util.View;
 using MonoTouch.Dialog;
-using MonoTouch.MapKit;
-using System.Drawing;
-using MonoTouch.CoreLocation;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using MapKit;
+using CoreGraphics;
+using CoreLocation;
+using UIKit;
+using Foundation;
 
 namespace EnjoyPubLib
 {
@@ -47,14 +47,14 @@ namespace EnjoyPubLib
 
 				};
 
-				var map = new MKMapView(new  RectangleF(0,0,400,400));
+				var map = new MKMapView(new  CGRect(0,0,400,400));
 				map.ZoomEnabled = true;
 				map.ScrollEnabled = true;
-
+				//TODO miss
 				var center = new CLLocationCoordinate2D ((double)Dto.Latitude, (double)Dto.Longtitude);
 				map.AddAnnotation (new MKPointAnnotation (){
 					Title=Dto.LibName,
-					Coordinate = center
+					//Coordinate = center
 				});
 				map.SetRegion (new MKCoordinateRegion (center,new MKCoordinateSpan(0.01,0.01)), true);
 				UIViewElement element = new UIViewElement ("", map, false);

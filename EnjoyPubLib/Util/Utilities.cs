@@ -1,7 +1,7 @@
 using System;
-using MonoTouch.UIKit;
+using UIKit;
 using MonoTouch;
-using MonoTouch.Foundation;
+using Foundation;
 
 namespace EnjoyPubLib.Util
 {

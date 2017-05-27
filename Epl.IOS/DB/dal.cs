@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using EnjoyPubLib.WebService;
 using EnjoyPubLib;
 using EnjoyPubLib.IPACS;

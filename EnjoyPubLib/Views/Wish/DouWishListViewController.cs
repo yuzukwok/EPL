@@ -2,7 +2,7 @@ using System;
 using EnjoyPubLib.Util.View;
 using MonoTouch.Dialog;
 using EnjoyPubLib.Util.ElementUtil;
-using MonoTouch.UIKit;
+using UIKit;
 using EnjoyPubLib.Util;
 using EnjoyPubLib.Service.Douban;
 using System.Collections;

@@ -1,8 +1,8 @@
 using System;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
-using System.Drawing;
-using MonoTouch.Foundation;
+using UIKit;
+using CoreGraphics;
+using Foundation;
 
 namespace EnjoyPubLib.Util.View
 {
@@ -22,7 +22,7 @@ namespace EnjoyPubLib.Util.View
 		{
 			Style = UITableViewStyle.Plain;
 			Autorotate = true;
-			_title = new UILabel(new RectangleF(0, 40, 320, 40));
+			_title = new UILabel(new CGRect(0, 40, 320, 40));
 			_title.TextAlignment = UITextAlignment.Left;
 			_title.BackgroundColor = UIColor.Clear;
 			_title.Font = UIFont.SystemFontOfSize(16f);
@@ -71,14 +71,14 @@ namespace EnjoyPubLib.Util.View
 
 		private void UpdateProfilePicture()
 		{
-			var size = new SizeF(32, 32);
+			var size = new CGSize(32, 32);
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft ||
 				UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight)
 			{
-				size = new SizeF(24, 24);
+				size = new CGSize(24, 24);
 			}
 
-			_profileButton.Frame = new RectangleF(new PointF(0, 4), size);
+			_profileButton.Frame = new CGRect(new CGPoint(0, 4), size);
 
 			NavigationItem.LeftBarButtonItem = new UIBarButtonItem(_profileButton);
 		}
@@ -95,7 +95,7 @@ namespace EnjoyPubLib.Util.View
 
 			//Add some nice looking colors and effects
 			TableView.SeparatorColor = UIColor.FromRGB(14, 14, 14);
-			TableView.TableFooterView = new UIView(new RectangleF(0, 0, View.Bounds.Width, 0));
+			TableView.TableFooterView = new UIView(new CGRect(0, 0, View.Bounds.Width, 0));
 			TableView.BackgroundColor = UIColor.FromRGB(150, 199, 218);
 
 			//Prevent the scroll to top on this view
@@ -119,7 +119,7 @@ namespace EnjoyPubLib.Util.View
 		{
 			public int NotificationNumber { get; set; }
 
-			public MenuElement(string title, NSAction tapped, UIImage image)
+			public MenuElement(string title, Action tapped, UIImage image)
 				: base(title, tapped)
 			{
 				BackgroundColor = UIColor.Clear;
@@ -163,8 +163,8 @@ namespace EnjoyPubLib.Util.View
 					if (ImageView != null)
 					{
 						var center = ImageView.Center;
-						ImageView.Frame = new RectangleF(0, 0, ImageSize, ImageSize);
-						ImageView.Center = new PointF(ImageSize, center.Y);
+						ImageView.Frame = new CGRect(0, 0, ImageSize, ImageSize);
+						ImageView.Center = new CGPoint(ImageSize, center.Y);
 
 						if (TextLabel != null)
 						{
@@ -177,7 +177,7 @@ namespace EnjoyPubLib.Util.View
 
 					if (NotificationNumber > 0)
 					{
-						_numberView.Frame = new RectangleF(ContentView.Bounds.Width - 44, 11, 34, 22f);
+						_numberView.Frame = new CGRect(ContentView.Bounds.Width - 44, 11, 34, 22f);
 						_numberView.Text = NotificationNumber.ToString();
 						AddSubview(_numberView);
 					}

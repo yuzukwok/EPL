@@ -1,6 +1,6 @@
 using System;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using System.Collections.Generic;
 using EnjoyPubLib.Util.ElementUtil;
 
@@ -15,7 +15,7 @@ namespace EnjoyPubLib.Util
 		public class Link
 		{
 			public NSRange Range;
-			public NSAction Callback;
+			public Action Callback;
 			public int Id;
 		}
 

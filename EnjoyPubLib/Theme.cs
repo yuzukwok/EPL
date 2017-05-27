@@ -1,7 +1,8 @@
 using System;
 using EnjoyPubLib.ImagesUtil;
-using MonoTouch.UIKit;
+using UIKit;
 using MonoTouch.Dialog;
+using MonoTouch.UIKit;
 
 namespace EnjoyPubLib.Util
 {

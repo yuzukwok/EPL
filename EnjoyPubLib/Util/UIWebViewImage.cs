@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using MonoTouch;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
-using System.Drawing;
+using UIKit;
+using Foundation;
+using CoreGraphics;
 
 namespace EnjoyPubLib
 {
@@ -29,14 +29,14 @@ namespace EnjoyPubLib
 			indicatorView.HidesWhenStopped = true;
 			var width  = (this.Frame.Width-20)/2;
 			var height = (this.Frame.Height-20)/2;
-			indicatorView.Frame = new RectangleF(width, height,20,20);
+			indicatorView.Frame = new CGRect(width, height,20,20);
 			this.AddSubview(indicatorView);
 		}
 
-		public UIWebImageView(RectangleF frame){
+		public UIWebImageView(CGRect frame){
 			Initialize();
 
-			indicatorView.Frame = new RectangleF (
+			indicatorView.Frame = new CGRect (
 				frame.Size.Width/2,
 				frame.Size.Height/2,
 				indicatorView.Frame.Size.Width,
@@ -44,7 +44,7 @@ namespace EnjoyPubLib
 
 		}
 
-		public UIWebImageView(RectangleF frame, string url):base(frame){
+		public UIWebImageView(CGRect frame, string url):base(frame){
 			Initialize();
 			Frame = frame;
 			DownloadImage(url);
@@ -65,21 +65,24 @@ namespace EnjoyPubLib
 				_view = view;
 			}
 
-			public override void ReceivedData (NSUrlConnection connection, NSData data)
-			{
-				if (_view.imageData==null)
-					_view.imageData = new NSMutableData();
 
-				_view.imageData.AppendData(data);	
-			}
 
-			public override void FinishedLoading (NSUrlConnection connection)
-			{
-				_view.indicatorView.StopAnimating();
-				UIImage downloadedImage = UIImage.LoadFromData(_view.imageData);
-				_view.imageData = null;
-				_view.Image = downloadedImage;
-			}
+			//TODO miss method
+//			public override void ReceivedData (NSUrlConnection connection, NSData data)
+//			{
+//				if (_view.imageData==null)
+//					_view.imageData = new NSMutableData();
+//
+//				_view.imageData.AppendData(data);	
+//			}
+//
+//			public override void FinishedLoading (NSUrlConnection connection)
+//			{
+//				_view.indicatorView.StopAnimating();
+//				UIImage downloadedImage = UIImage.LoadFromData(_view.imageData);
+//				_view.imageData = null;
+//				_view.Image = downloadedImage;
+//			}
 		}
 	}
 }

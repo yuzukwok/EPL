@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using EnjoyPubLib.Util.View;
 using System.Collections.Generic;
 using MonoTouch.Dialog;
 using EnjoyPubLib.Dto;
 using MonoTouch.Dialog.Utilities;
 using EnjoyPubLib.ImagesUtil;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using UIKit;
+using Foundation;
 using EnjoyPubLib.WebService;
 using System.Linq;
 using EnjoyPubLib.View;

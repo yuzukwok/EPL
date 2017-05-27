@@ -1,15 +1,15 @@
-﻿using System;
-using MonoTouch.UIKit;
-using System.Drawing;
-using MonoTouch.iAd;
-using MonoTouch.CoreFoundation;
+using System;
+using UIKit;
+using CoreGraphics;
+using iAd;
+using CoreFoundation;
 
 namespace EnjoyPubLib
 {
 	public partial class IADViewController : UIViewController
 	{
 		private UIViewController _anyVC;
-		private MonoTouch.iAd.ADBannerView _ad;
+		private iAd.ADBannerView _ad;
 
 		public IADViewController (UIViewController anyVC)
 		{
@@ -27,7 +27,7 @@ namespace EnjoyPubLib
 			//if (Common.Device.Is6AtLeast && Social.IsiAdCountry) {
 
 				try {
-					_ad = new MonoTouch.iAd.ADBannerView (MonoTouch.iAd.ADAdType.Banner);
+					_ad = new iAd.ADBannerView (iAd.ADAdType.Banner);
 					_ad.Hidden = true;
 					_ad.FailedToReceiveAd += HandleFailedToReceiveAd;
 					_ad.AdLoaded += HandleAdLoaded;
@@ -59,13 +59,13 @@ namespace EnjoyPubLib
 			UIView.Animate (.25,
 				() => {
 					if (_ad !=null && _ad.Hidden == false) {
-						_anyVC.View.Frame = new RectangleF (0, 0, this.View.Bounds.Width, this.View.Bounds.Height - _ad.Frame.Height);
+						_anyVC.View.Frame = new CGRect (0, 0, this.View.Bounds.Width, this.View.Bounds.Height - _ad.Frame.Height);
 					} else {
 						_anyVC.View.Frame = View.Bounds;
 					}
 				});
 			if(_ad!=null)
-				_ad.Frame = new RectangleF (0, _anyVC.View.Bounds.Height, this.View.Bounds.Width, _ad.Frame.Height);
+				_ad.Frame = new CGRect (0, _anyVC.View.Bounds.Height, this.View.Bounds.Width, _ad.Frame.Height);
 		}
 
 		void HandleAdLoaded (object sender, EventArgs e)

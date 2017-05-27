@@ -4,7 +4,7 @@
 // actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
-using MonoTouch.Foundation;
+using Foundation;
 using System.CodeDom.Compiler;
 
 namespace EnjoyPubLib
@@ -13,7 +13,7 @@ namespace EnjoyPubLib
 	partial class AddDoubanViewController
 	{
 		[Outlet]
-		MonoTouch.UIKit.UIWebView web { get; set; }
+		UIKit.UIWebView web { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{

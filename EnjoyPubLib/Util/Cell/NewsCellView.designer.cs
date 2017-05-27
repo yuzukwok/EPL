@@ -4,7 +4,7 @@
 // actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
-using MonoTouch.Foundation;
+using Foundation;
 using System.CodeDom.Compiler;
 
 namespace EnjoyPubLib.Util
@@ -13,10 +13,10 @@ namespace EnjoyPubLib.Util
 	partial class NewsCellView
 	{
 		[Outlet]
-		MonoTouch.UIKit.UIImageView Image { get; set; }
+		UIKit.UIImageView Image { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel Title { get; set; }
+		UIKit.UILabel Title { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{

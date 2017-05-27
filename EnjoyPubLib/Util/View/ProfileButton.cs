@@ -1,7 +1,7 @@
 using System;
-using MonoTouch.UIKit;
+using UIKit;
 using MonoTouch.Dialog.Utilities;
-using System.Drawing;
+using CoreGraphics;
 
 namespace EnjoyPubLib.Util.View
 {
@@ -26,7 +26,7 @@ namespace EnjoyPubLib.Util.View
 		{
 			this.AutosizesSubviews = true;
 
-			_imageView = new UIImageView(new RectangleF(new PointF(0, 0), this.Frame.Size));
+			_imageView = new UIImageView(new CGRect(new CGPoint(0, 0), this.Frame.Size));
 			_imageView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 			_imageView.Layer.MasksToBounds = true;
 			_imageView.Layer.CornerRadius = 4.0f;

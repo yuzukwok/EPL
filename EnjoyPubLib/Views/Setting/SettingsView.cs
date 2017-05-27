@@ -23,9 +23,9 @@ namespace EnjoyPubLib.View
 		{
 
 			//关联帐号
-			var setAccountView = new StyledStringElement("关联帐号".t(), "", MonoTouch.UIKit.UITableViewCellStyle.Value1)
+			var setAccountView = new StyledStringElement("关联帐号".t(), "", UIKit.UITableViewCellStyle.Value1)
 			{ 
-				Accessory = MonoTouch.UIKit.UITableViewCellAccessory.DisclosureIndicator,
+				Accessory = UIKit.UITableViewCellAccessory.DisclosureIndicator,
 			};
 			setAccountView.Tapped += () => {
 				NavigationController.PushViewController(new AddAccountViewController(),true);

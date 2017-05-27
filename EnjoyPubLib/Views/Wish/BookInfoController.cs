@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using EnjoyPubLib.Util.View;
 using System.Collections;
 using System.Collections.Generic;
 using MonoTouch.Dialog;
 using EnjoyPubLib.Util.ElementUtil;
-using MonoTouch.UIKit;
-using System.Drawing;
+using UIKit;
+using CoreGraphics;
 using EnjoyPubLib.WebService;
 using MonoTouch.Dialog.Utilities;
 using EnjoyPubLib.ImagesUtil;
@@ -81,7 +81,7 @@ namespace EnjoyPubLib
 
 
 					//return
-					NavigationController.PopViewControllerAnimated(true);
+					NavigationController.PopViewController(true);
 				};
 				e.Alignment = UITextAlignment.Center;
 				e.Font = UIFont.SystemFontOfSize (20);

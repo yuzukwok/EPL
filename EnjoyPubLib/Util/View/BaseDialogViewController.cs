@@ -1,6 +1,6 @@
 using System;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 
 namespace EnjoyPubLib.Util.View
 {
@@ -18,7 +18,7 @@ namespace EnjoyPubLib.Util.View
 			SearchPlaceholder = "Search";
 			//AutoHideSearch = true;
 			Style = UITableViewStyle.Grouped;
-			NavigationItem.LeftBarButtonItem = new UIBarButtonItem(Theme.CurrentTheme.BackButton, UIBarButtonItemStyle.Plain, (s, e) => NavigationController.PopViewControllerAnimated(true));
+			NavigationItem.LeftBarButtonItem = new UIBarButtonItem(Theme.CurrentTheme.BackButton, UIBarButtonItemStyle.Plain, (s, e) => NavigationController.PopViewController(true));
 		}
 
 		public override void ViewDidLoad()
@@ -41,27 +41,29 @@ namespace EnjoyPubLib.Util.View
 		{
 			public SizingSource (DialogViewController controller) : base (controller) {}
 
-			public override float GetHeightForFooter (UITableView tableView, int sectionIdx)
-			{
-				var section = Root[sectionIdx];
-				if (Container.Style == UITableViewStyle.Grouped && section.FooterView == null && string.IsNullOrEmpty(section.Footer))
-					return 3;
-				return base.GetHeightForFooter(tableView, sectionIdx);
-			}
+//			public override nfloat GetHeightForFooter (UITableView tableView, nint sectionIdx)
+//			{
+//				//TODO Missmethod
+////				var section = Root[sectionIdx];
+////				if (Container.Style == UITableViewStyle.Grouped && section.FooterView == null && string.IsNullOrEmpty(section.Footer))
+////					return 3;
+////				return base.GetHeightForFooter(tableView, sectionIdx);
+//
+//			}
 
 		}
 
 		protected new class Source : DialogViewController.Source
 		{
 			public Source (DialogViewController controller) : base (controller) {}
-
-			public override float GetHeightForFooter (UITableView tableView, int sectionIdx)
-			{
-				var section = Root[sectionIdx];
-				if (Container.Style == UITableViewStyle.Grouped && section.FooterView == null && string.IsNullOrEmpty(section.Footer))
-					return 3;
-				return base.GetHeightForFooter(tableView, sectionIdx);
-			}
+			//TODO miss
+//			public override nfloat GetHeightForFooter (UITableView tableView, nint sectionIdx)
+//			{
+//				var section = Root[sectionIdx];
+//				if (Container.Style == UITableViewStyle.Grouped && section.FooterView == null && string.IsNullOrEmpty(section.Footer))
+//					return 3;
+//				return base.GetHeightForFooter(tableView, sectionIdx);
+//			}
 		}
 	}
 }

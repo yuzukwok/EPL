@@ -10,10 +10,10 @@ using BigTed;
 using EnjoyPubLib.WebService;
 using EnjoyPubLib.Service.Douban;
 using EnjoyPubLib.ImagesUtil;
-using MonoTouch.UIKit;
+using UIKit;
 using ZXing;
 using ZXing.Mobile;
-using MonoTouch.iAd;
+using iAd;
 
 namespace EnjoyPubLib.View
 {

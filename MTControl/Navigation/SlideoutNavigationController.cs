@@ -1,7 +1,7 @@
 using System;
-using System.Drawing;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using CoreGraphics;
+using UIKit;
+using Foundation;
 
 namespace MTControl.Menu
 {
@@ -21,7 +21,7 @@ namespace MTControl.Menu
 		private UIViewController _externalMenuViewRight;
 		private bool _ignorePan;
 		private UINavigationController _internalTopNavigation;
-		private float _panOriginX;
+		private nfloat _panOriginX;
 		private bool _displayNavigationBarOnSideBarLeft;
 		private bool _displayNavigationBarOnSideBarRight;
 		private bool _shadowShown;
@@ -273,12 +273,12 @@ namespace MTControl.Menu
 					if (!Visible) {
 						if (_panGesture.NumberOfTouches == 0)
 							return;
-						PointF touch = _panGesture.LocationOfTouch (0, view);
+						CGPoint touch = _panGesture.LocationOfTouch (0, view);
 						if (touch.Y > SlideHeight || _internalTopNavigation.NavigationBarHidden)
 							_ignorePan = true;
 					}
 				} else if (!_ignorePan && (_panGesture.State == UIGestureRecognizerState.Changed)) {
-					float t = _panGesture.TranslationInView (view).X;
+					nfloat t = _panGesture.TranslationInView (view).X;
 
 					if (RightMenuEnabled && _panOriginX + t < 0) {
 						HideLeft ();
@@ -297,13 +297,13 @@ namespace MTControl.Menu
 					}
 
 					if ((LeftMenuEnabled && (_panOriginX + t) >= 0) || (RightMenuEnabled && (_panOriginX + t) <= 0))
-						view.Frame = new RectangleF (_panOriginX + t, view.Frame.Y, view.Frame.Width, view.Frame.Height);
+						view.Frame = new CGRect (_panOriginX + t, view.Frame.Y, view.Frame.Width, view.Frame.Height);
 
 					ShowShadowWhileDragging ();
 				} else if (!_ignorePan &&
 					(_panGesture.State == UIGestureRecognizerState.Ended ||
 						_panGesture.State == UIGestureRecognizerState.Cancelled)) {
-					float velocity = _panGesture.VelocityInView (view).X;
+					nfloat velocity = _panGesture.VelocityInView (view).X;
 
 					if (Visible) {
 						if ((view.Frame.X < (view.Frame.Width / 2) && _leftMenuShowing) || (view.Frame.X > -(view.Frame.Width / 2) && _rightMenuShowing))
@@ -311,12 +311,12 @@ namespace MTControl.Menu
 						else if (_leftMenuShowing) {
 							UIView.Animate (SlideSpeed, 0, UIViewAnimationOptions.CurveEaseInOut,
 								() => {
-									view.Frame = new RectangleF (SlideWidth, view.Frame.Y, view.Frame.Width, view.Frame.Height);
+									view.Frame = new CGRect (SlideWidth, view.Frame.Y, view.Frame.Width, view.Frame.Height);
 								}, () => { });
 						} else if (_rightMenuShowing) {
 							UIView.Animate (SlideSpeed, 0, UIViewAnimationOptions.CurveEaseInOut,
 								() => {
-									view.Frame = new RectangleF (-SlideWidth, view.Frame.Y, view.Frame.Width, view.Frame.Height);
+									view.Frame = new CGRect (-SlideWidth, view.Frame.Y, view.Frame.Width, view.Frame.Height);
 								}, () => { });
 						}
 					} else {
@@ -329,7 +329,7 @@ namespace MTControl.Menu
 						} else {
 							UIView.Animate (SlideSpeed, 0, UIViewAnimationOptions.CurveEaseInOut,
 								() => {
-									view.Frame = new RectangleF (0, 0, view.Frame.Width, view.Frame.Height); }, () => { });
+									view.Frame = new CGRect (0, 0, view.Frame.Width, view.Frame.Height); }, () => { });
 						}
 					}
 				}
@@ -349,9 +349,9 @@ namespace MTControl.Menu
 		{
 			base.ViewDidLoad ();
 
-			_internalTopView.View.Frame = new RectangleF (0, 0, View.Frame.Width, View.Frame.Height);
-			_internalMenuViewLeft.View.Frame = new RectangleF (0, 0, SlideWidth, View.Frame.Height);
-			_internalMenuViewRight.View.Frame = new RectangleF (View.Frame.Width - SlideWidth, 0, SlideWidth, View.Frame.Height);
+			_internalTopView.View.Frame = new CGRect (0, 0, View.Frame.Width, View.Frame.Height);
+			_internalMenuViewLeft.View.Frame = new CGRect (0, 0, SlideWidth, View.Frame.Height);
+			_internalMenuViewRight.View.Frame = new CGRect (View.Frame.Width - SlideWidth, 0, SlideWidth, View.Frame.Height);
 
 			//Add the list View
 			AddChildViewController (_internalMenuViewLeft);
@@ -414,7 +414,7 @@ namespace MTControl.Menu
 			if (!LayerShadowing || _shadowShown)
 				return;
 
-			_internalTopView.View.Layer.ShadowOffset = new SizeF (position, 0);
+			_internalTopView.View.Layer.ShadowOffset = new CGSize (position, 0);
 			_internalTopView.View.Layer.ShadowPath = UIBezierPath.FromRect (_internalTopView.View.Bounds).CGPath;
 			_internalTopView.View.Layer.ShadowRadius = 4.0f;
 			_internalTopView.View.Layer.ShadowOpacity = ShadowOpacity;
@@ -432,7 +432,7 @@ namespace MTControl.Menu
 			if (!LayerShadowing || !_shadowShown)
 				return;
 
-			_internalTopView.View.Layer.ShadowOffset = new SizeF (0, 0);
+			_internalTopView.View.Layer.ShadowOffset = new CGSize (0, 0);
 			_internalTopView.View.Layer.ShadowRadius = 0.0f;
 			_internalTopView.View.Layer.ShadowOpacity = 0.0f;
 			_internalTopView.View.Layer.ShadowColor = UIColor.Clear.CGColor;
@@ -454,13 +454,13 @@ namespace MTControl.Menu
 			//Show some shadow!
 			ShowShadowLeft ();
 
-			_internalMenuViewLeft.View.Frame = new RectangleF (0, 0, SlideWidth, View.Bounds.Height);
+			_internalMenuViewLeft.View.Frame = new CGRect (0, 0, SlideWidth, View.Bounds.Height);
 			if (MenuViewLeft != null)
 				MenuViewLeft.ViewWillAppear(true);
 
 			UIView view = _internalTopView.View;
 			UIView.Animate (SlideSpeed, 0, UIViewAnimationOptions.CurveEaseInOut,
-				() => view.Frame = new RectangleF(SlideWidth, 0, view.Frame.Width, view.Frame.Height),
+				() => view.Frame = new CGRect(SlideWidth, 0, view.Frame.Width, view.Frame.Height),
 				() =>
 				{
 					if (view.Subviews.Length > 0)
@@ -508,13 +508,13 @@ namespace MTControl.Menu
 
 			ShowShadowRight ();
 
-			_internalMenuViewRight.View.Frame = new RectangleF (View.Frame.Width - SlideWidth, 0, SlideWidth, View.Bounds.Height);
+			_internalMenuViewRight.View.Frame = new CGRect (View.Frame.Width - SlideWidth, 0, SlideWidth, View.Bounds.Height);
 			if (MenuViewRight != null)
 				MenuViewRight.ViewWillAppear(true);
 
 			UIView view = _internalTopView.View;
 			UIView.Animate (SlideSpeed, 0, UIViewAnimationOptions.CurveEaseInOut,
-				() => view.Frame = new RectangleF(-SlideWidth, 0, view.Frame.Width, view.Frame.Height),
+				() => view.Frame = new CGRect(-SlideWidth, 0, view.Frame.Width, view.Frame.Height),
 				() => {
 					if (view.Subviews.Length > 0)
 						view.Subviews [0].UserInteractionEnabled = false;
@@ -579,7 +579,7 @@ namespace MTControl.Menu
 			_internalTopNavigation = new UINavigationController (view) {
 				View =
 				{
-					Frame = new RectangleF(0, 0,
+					Frame = new CGRect(0, 0,
 						_internalTopView.View.Frame.Width,
 						_internalTopView.View.Frame.Height)
 				}
@@ -609,9 +609,9 @@ namespace MTControl.Menu
 
 			UIView view = _internalTopView.View;
 
-			NSAction animation = () => {
-				view.Frame = new RectangleF (0, 0, view.Frame.Width, view.Frame.Height); };
-			NSAction finished = () => {
+			Action animation = () => {
+				view.Frame = new CGRect (0, 0, view.Frame.Width, view.Frame.Height); };
+			Action finished = () => {
 				if (view.Subviews.Length > 0)
 					view.Subviews [0].UserInteractionEnabled = true;
 				view.RemoveGestureRecognizer (_tapGesture);

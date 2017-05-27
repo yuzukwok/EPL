@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using EnjoyPubLib.Util.View;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using EnjoyPubLib.Util.ElementUtil;
 
 namespace EnjoyPubLib

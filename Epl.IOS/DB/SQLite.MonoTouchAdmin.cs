@@ -23,9 +23,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using System.Drawing;
+using Foundation;
+using UIKit;
+using CoreGraphics;
 
 
 namespace SQLite.MonoTouchAdmin
@@ -48,8 +48,8 @@ namespace SQLite.MonoTouchAdmin
 			return c;
 		}
 		
-		public static RectangleF GetTableRect() {
-			return new RectangleF (0, 0, 320, 416);
+		public static CGRect GetTableRect() {
+			return new CGRect (0, 0, 320, 416);
 		}
 	}
 
@@ -108,11 +108,11 @@ namespace SQLite.MonoTouchAdmin
 			{
 				_c = c;
 			}
-			public override int NumberOfSections (UITableView tableView)
+			public override nint NumberOfSections (UITableView tableView)
 			{
 				return 1;
 			}
-			public override int RowsInSection (UITableView tableview, int section)
+			public override nint RowsInSection (UITableView tableview, nint section)
 			{
 				return _c.TableMappings.Length;
 			}
@@ -190,11 +190,11 @@ namespace SQLite.MonoTouchAdmin
 			{
 				_c = c;
 			}
-			public override int NumberOfSections (UITableView tableView)
+			public override nint NumberOfSections (UITableView tableView)
 			{
 				return 1;
 			}
-			public override int RowsInSection (UITableView tableview, int section)
+			public override nint RowsInSection (UITableView tableview, nint section)
 			{
 				return _c.Rows.Count;
 			}

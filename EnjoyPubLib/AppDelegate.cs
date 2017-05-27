@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using EnjoyPubLib.Util.View;
 using EnjoyPubLib.View;
 using EnjoyPubLib.Service;
@@ -90,29 +90,30 @@ namespace EnjoyPubLib
 
 		public override void RegisteredForRemoteNotifications (UIApplication application, NSData deviceToken)
 		{
+			//TODO miss method
 			var oldDeviceToken = NSUserDefaults.StandardUserDefaults.StringForKey("PushDeviceToken");
 
 			//There's probably a better way to do this
 			var strFormat = new NSString("%@");
-			var dt = new NSString(MonoTouch.ObjCRuntime.Messaging.IntPtr_objc_msgSend_IntPtr_IntPtr(new MonoTouch.ObjCRuntime.Class("NSString").Handle, new MonoTouch.ObjCRuntime.Selector("stringWithFormat:").Handle, strFormat.Handle, deviceToken.Handle));
-			var newDeviceToken = dt.ToString().Replace("<", "").Replace(">", "").Replace(" ", "");
-
-			if (string.IsNullOrEmpty(oldDeviceToken) || !deviceToken.Equals(newDeviceToken))
-			{
-				if (Reachability.InternetConnectionStatus () != NetworkStatus.NotReachable) {
-					try {
-						EnjoyPubLibService ser = new EnjoyPubLibService ();
-						ser.UpdateUserNotify (newDeviceToken, oldDeviceToken, false);
-					} catch (Exception ex) {
-						//   服务异常，网络不同无法调用
-					}
-				}
-
-			}
+//			var dt = new NSString(ObjCRuntime.Messaging.IntPtr_objc_msgSend_IntPtr_IntPtr(new ObjCRuntime.Class("NSString").Handle, new ObjCRuntime.Selector("stringWithFormat:").Handle, strFormat.Handle, deviceToken.Handle));
+//			var newDeviceToken = dt.ToString().Replace("<", "").Replace(">", "").Replace(" ", "");
+//
+//			if (string.IsNullOrEmpty(oldDeviceToken) || !deviceToken.Equals(newDeviceToken))
+//			{
+//				if (Reachability.InternetConnectionStatus () != NetworkStatus.NotReachable) {
+//					try {
+//						EnjoyPubLibService ser = new EnjoyPubLibService ();
+//						ser.UpdateUserNotify (newDeviceToken, oldDeviceToken, false);
+//					} catch (Exception ex) {
+//						//   服务异常，网络不同无法调用
+//					}
+//				}
+//
+//			}
 
 			//Save device token now
-			NSUserDefaults.StandardUserDefaults.SetString(newDeviceToken, "PushDeviceToken");
-			DTK = newDeviceToken;
+			//NSUserDefaults.StandardUserDefaults.SetString(newDeviceToken, "PushDeviceToken");
+			//DTK = newDeviceToken;
 			//Console.WriteLine("Device Token: " + newDeviceToken);
 		}
 

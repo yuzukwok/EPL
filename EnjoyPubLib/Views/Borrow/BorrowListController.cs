@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Text;
 using EnjoyPubLib.Util.ElementUtil;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using EnjoyPubLib.Util.View;
 using Evernote;
 using Evernote.EDAM.Type;

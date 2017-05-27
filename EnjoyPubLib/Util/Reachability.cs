@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Net;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.SystemConfiguration;
-using MonoTouch.CoreFoundation;
+using Foundation;
+using UIKit;
+using SystemConfiguration;
+using CoreFoundation;
 
 namespace EnjoyPubLib
 {
@@ -70,9 +70,10 @@ namespace EnjoyPubLib
 		static NetworkReachability adHocWiFiNetworkReachability;
 		public static bool IsAdHocWiFiNetworkAvailable (out NetworkReachabilityFlags flags)
 		{
+			//TODO MISS
 			if (adHocWiFiNetworkReachability == null){
 				adHocWiFiNetworkReachability = new NetworkReachability (new IPAddress (new byte [] {169,254,0,0}));
-				adHocWiFiNetworkReachability.SetCallback (OnChange);
+				//adHocWiFiNetworkReachability.SetCallback (OnChange);
 				adHocWiFiNetworkReachability.Schedule (CFRunLoop.Current, CFRunLoop.ModeDefault);
 			}
 
@@ -85,9 +86,10 @@ namespace EnjoyPubLib
 		static NetworkReachability defaultRouteReachability;
 		static bool IsNetworkAvailable (out NetworkReachabilityFlags flags)
 		{
+			//TODO MISS
 			if (defaultRouteReachability == null){
 				defaultRouteReachability = new NetworkReachability (new IPAddress (0));
-				defaultRouteReachability.SetCallback (OnChange);
+				//defaultRouteReachability.SetCallback (OnChange);
 				defaultRouteReachability.Schedule (CFRunLoop.Current, CFRunLoop.ModeDefault);
 			}
 			if (!defaultRouteReachability.TryGetFlags (out flags))
@@ -98,6 +100,7 @@ namespace EnjoyPubLib
 		static NetworkReachability remoteHostReachability;
 		public static NetworkStatus RemoteHostStatus ()
 		{
+			//TODO miss
 			NetworkReachabilityFlags flags;
 			bool reachable;
 
@@ -108,7 +111,7 @@ namespace EnjoyPubLib
 				// this only happens when you create NetworkReachability from a hostname
 				reachable = remoteHostReachability.TryGetFlags (out flags);
 
-				remoteHostReachability.SetCallback (OnChange);
+				//remoteHostReachability.SetCallback (OnChange);
 				remoteHostReachability.Schedule (CFRunLoop.Current, CFRunLoop.ModeDefault);
 			} else
 				reachable = remoteHostReachability.TryGetFlags (out flags);			

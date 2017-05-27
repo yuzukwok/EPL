@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using EnjoyPubLib.Util.View;
 using EnjoyPubLib.Dto;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using System.Linq;
 using EnjoyPubLib.Util.ElementUtil;
 using EnjoyPubLib.WebService;
